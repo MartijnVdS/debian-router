@@ -1,0 +1,17 @@
+[NetDev]
+Name=br-localnet
+Kind=bridge
+
+# Generate a random mac address for the bridge
+# (https://www.hellion.org.uk/cgi-bin/randmac.pl?scope=local&type=unicast)
+# and put it here:
+MACAddress=aa:bb:cc:dd:ee:ff
+
+# See the systemd.netdev manpage for more options/information
+[Bridge]
+STP=on
+VLANFiltering=on
+DefaultPVID=1
+#MulticastQuerier=on
+MulticastSnooping=off
+ForwardDelaySec=2

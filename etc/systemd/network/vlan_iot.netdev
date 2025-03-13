@@ -1,0 +1,7 @@
+[NetDev]
+Name=vlan_iot
+Kind=vlan
+
+[VLAN]
+Id=4
+ReorderHeader=true

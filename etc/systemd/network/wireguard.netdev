@@ -1,0 +1,34 @@
+[NetDev]
+Name = wg0
+Kind = wireguard
+Description = WireGuard server 
+MTUBytes=1300
+
+[WireGuard]
+PrivateKeyFile = /etc/systemd/network/wg-private.key
+ListenPort = 51820
+
+# Comment to indicate which peer this is (laptop, phone, etc.)
+[WireGuardPeer]
+# The peer's pubkey goes here:
+PublicKey = PubkeyOfOtherSide
+# PSK must be the same for both sides of a connection
+# (ensure you use a unique one for each peer!)
+PresharedKey = GeneratedPSK
+AllowedIPs = 10.240.7.2/32
+
+# Client config file:
+#
+# [Interface]
+# Address = 10.240.7.2/24
+# ListenPort = 51820
+# PrivateKey = generated_private_key
+# 
+# [Peer]
+# # The _server_ public key
+# PublicKey = contents_of_wg-public.key
+# PresharedKey = GeneratedPSK
+# # Can be 0.0.0.0/0 to route everything over the VPN
+# # To set multiple ranges, comma-separate them.
+# AllowedIPs = 10.240.0.0/16
+# Endpoint = hostname-for-wan-ip:51820

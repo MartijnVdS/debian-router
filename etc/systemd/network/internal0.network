@@ -1,0 +1,32 @@
+[Match]
+# Replace with mac address of internal (LAN) interface
+# This will become a trunk port containing all internal
+# VLANs, to be split out by a downstream (managed) switch
+# You can copy this file to set up multiple downstream trunk
+# ports.
+MACAddress=aa:bb:cc:dd:ee:ff
+Type=ether
+
+[Network]
+Description=Trunk to switch
+LLMNR=no
+Bridge=br-localnet
+
+[BridgeVLAN]
+EgressUntagged=1
+PVID=1
+
+[BridgeVLAN]
+VLAN=2
+
+[BridgeVLAN]
+VLAN=3
+
+[BridgeVLAN]
+VLAN=4
+
+[BridgeVLAN]
+VLAN=6
+
+[BridgeVLAN]
+VLAN=7

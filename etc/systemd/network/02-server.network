@@ -1,0 +1,27 @@
+[Match]
+Name=vlan_server
+
+[Network]
+Description=Servers
+
+DHCPPrefixDelegation=true
+IPv6SendRA=true
+IPv6AcceptRA=false
+
+Address=10.240.2.1/24
+DHCPServer=yes
+
+[DHCPServer]
+PoolOffset=192
+PoolSize=32
+EmitDNS=yes
+DNS=10.240.2.8
+# For more DNS servers, just add more:
+#DNS=10.240.2.9
+DefaultLeaseTimeSec=6h
+
+[DHCPPrefixDelegation]
+SubnetId=2
+Announce=true
+Assign=true
+Token=::1

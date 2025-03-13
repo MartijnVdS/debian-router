@@ -1,0 +1,56 @@
+[Match]
+# Put the mac address of the interface that is connected to
+# your ISP here:
+MACAddress=xx
+Type=ether
+
+[Network]
+# See systemd.network manpage for more
+# Get IPv4 via DHCP
+DHCP=yes
+# Get an IPv6 prefix via DHCPv6-PD
+DHCPPrefixDelegation=yes
+
+# Don't send or accept IPv6 router advertisements on this interface
+IPv6SendRA=no
+IPv6AcceptRA=no
+
+# Set an IPv6 LL address (required for DHCPv6 to work)
+LinkLocalAddressing=ipv6
+
+# No link-local multicast name resolution
+LLMNR=no
+
+# No LLDP on this link
+LLDP=no
+
+# Force our own DNS server(s)
+DNS=10.240.2.8
+# Repeat if more DNS servers:
+#DNS=10.240.2.9
+
+[DHCPPrefixDelegation]
+# Use the 0th prefix from DHCPv6-PD to give the WAN interface
+# an address; this is then used for connections initiated
+# from this server.
+SubnetId=0
+Announce=false
+Assign=true
+Token=::1
+
+# Configure DHCPv6, see systemd.network
+# Note: Some ISPs are very picky about their DHCPv6 requests
+#[DHCPv6]
+#WithoutRA=solicit
+#UseDelegatedPrefix=true
+#UseAddress=false
+#PrefixDelegationHint=::/48
+#UseDNS=false
+#UseNTP=false
+#UseHostname=false
+
+# See also:
+# https://github.com/systemd/systemd/issues/22493
+
+[Link]
+RequiredForOnline=yes

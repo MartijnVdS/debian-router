@@ -1,0 +1,32 @@
+[Match]
+Name=vlan_iot
+
+[Network]
+Description=IoT devices
+
+DHCPPrefixDelegation=true
+IPv6SendRA=true
+IPv6AcceptRA=false
+
+Address=10.240.3.1/24
+DHCPServer=yes
+
+[DHCPServer]
+PoolOffset=10
+PoolSize=200
+EmitDNS=yes
+DNS=10.240.2.8
+# For more DNS servers, just add more:
+#DNS=10.240.2.9
+DefaultLeaseTimeSec=6h
+
+[DHCPPrefixDelegation]
+SubnetId=3
+Announce=true
+Assign=true
+Token=::1
+
+[DHCPServerStaticLease]
+# Device that should get a static IP over DHCP
+Address=10.240.3.2
+MACAddress=aa:bb:cc:dd:ee:ff

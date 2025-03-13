@@ -1,0 +1,7 @@
+[NetDev]
+Name=vlan_trusted
+Kind=vlan
+
+[VLAN]
+Id=3
+ReorderHeader=true

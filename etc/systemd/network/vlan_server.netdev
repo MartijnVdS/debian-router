@@ -1,0 +1,7 @@
+[NetDev]
+Name=vlan_server
+Kind=vlan
+
+[VLAN]
+Id=2
+ReorderHeader=true

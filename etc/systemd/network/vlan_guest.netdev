@@ -1,0 +1,7 @@
+[NetDev]
+Name=vlan_guest
+Kind=vlan
+
+[VLAN]
+Id=6
+ReorderHeader=true

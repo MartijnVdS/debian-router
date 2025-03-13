@@ -1,0 +1,26 @@
+[Match]
+Name=vlan_guest
+
+[Network]
+Description=Guest
+
+DHCPPrefixDelegation=true
+IPv6SendRA=true
+IPv6AcceptRA=false
+
+Address=10.240.6.1/24
+DHCPServer=yes
+
+[DHCPServer]
+PoolSize=200
+EmitDNS=yes
+DNS=10.240.2.8
+# For more DNS servers, just add more:
+#DNS=10.240.2.9
+DefaultLeaseTimeSec=6h
+
+[DHCPPrefixDelegation]
+SubnetId=6
+Announce=true
+Assign=true
+Token=::1
