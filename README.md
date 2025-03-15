@@ -151,3 +151,12 @@ described in https://github.com/systemd/systemd/issues/25547
 Autodiscovery between networks (most likely "trusted" and "iot", and
 "trusted" and "server" networks) can be enabled by installing the
 `mdns-reflector` package and configuring it. See https://github.com/vfreex/mdns-reflector for more information.
+
+To see how much traffic has passed through the various firewall rules, you
+can look at the counters in `nft list ruleset`.
+
+Another way to keep statistics of, is [vnstat](https://humdi.net/vnstat/).
+`apt install vnstat` will set it up, and will allow you to see how much
+traffic passed through each interface. It can also email reports, examples
+in of how to do this can be found in `/usr/share/doc/vnstat/examples` and
+on the tool's web page.
